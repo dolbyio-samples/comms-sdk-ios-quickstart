@@ -16,7 +16,7 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 
 ![Xcode Build Setting](./wiki-quickstart-bundleid.png)
 
-- Open Constants.swift and if missing, replace the API_TOKEN with your developer token.
+- Open Constants.swift and if missing, replace the API_TOKEN with your developer token*. (See note below for generating a developer token)
   
 - Build and run your application.
 - You can test the app with another particpant by going to the developer dashboard at https://dashboard.dolby.io/dashboard/applications/summary and selecting your app and the communications apis link in the sidebar, select the test tab and join a conference.
@@ -25,6 +25,42 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 - If you have any issues with the SDK not being recognized; try updating the packages or re-installing the package SDK. (See below)
 
 
+### *Alternatively you can create a Developer Token with the handy bookmarklet:
+- Step 1: Open this page in Chrome:
+-  Step 2: Select View -> Always show Bookmarks Bar
+-  Step 3: Drag this link to the Bookmarks Bar of the Chrome Browser.
+
+<a href="javascript:(() => {
+        let delay = ms => new Promise(res => setTimeout(res, ms)); let button = document.querySelectorAll('button')[2];
+        button.addEventListener('click', async (event) => {
+            let done = await delay(3000);
+            let key = document.querySelectorAll('input')[0].value;
+            let secret = document.querySelectorAll('input')[1].value;
+            var credentials = btoa(key + ':' + secret);
+            let expiry = (3600 * 24 * 2);
+            fetch('https://session.voxeet.com/v1/oauth2/token', {
+                method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Basic ' + credentials }, body: JSON.stringify({ grant_type: 'client_credentials', expires_in: expiry })
+            }).then(response => response.json()).then(data => {
+                console.log('Success:', data, data['access_token']);
+                navigator.clipboard.writeText(data['access_token']).then(() => { console.log('Text copied to clipboard...'); alert(`${ data['access_token'] } was written to the clipboard`);}).catch(err => { console.log('Something went wrong', err);})
+            }).catch((error) => { console.error('Error:', error); alert('Error:', error); });
+        });
+        button.click();
+    })();">
+            Generate Developer Token - Dolby.io Comms API
+        </a>
+- Step 4: Open <a href="https://dashboard.dolby.io/dashboard/applications/summary">Dolby.io Dashboard</a> and
+        create a new project or select an existing project.
+- Step 5: Click the link to display the API Keys.
+        Once the page loads, click on the "Generate Developer Token - Dolby.io Comms API" bookmark to generate a 48 hr
+        token.
+- Paste the token into your project's constants settings to initalize the SDK. See example below.
+  
+
+  ```
+   let API_TOKEN = "<REPLACE-WITH-YOUR-DEVELOPER-TOKEN>"
+  ```
+ 
 ## Installing the SDK with Swift Package Manager
 
 The Swift Package Manager is a tool for automating the process of downloading, compiling, and linking dependencies. The Swift Package Manager is supported in SDK 3.4.0 and later versions.
