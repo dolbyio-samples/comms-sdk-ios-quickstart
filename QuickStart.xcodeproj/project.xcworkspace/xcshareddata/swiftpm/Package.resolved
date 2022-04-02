@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "VoxeetSDK",
+        "repositoryURL": "https://github.com/voxeet/voxeet-sdk-ios",
+        "state": {
+          "branch": "master",
+          "revision": "74cc6b8c9524d878a5ebd6335be2261fa0163ed0",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
