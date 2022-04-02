@@ -30,12 +30,31 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 -  Step 2: Select View -> Always show Bookmarks Bar
 -  Step 3: Drag this link to the Bookmarks Bar of the Chrome Browser.
 
-<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-<foreignObject width="100" height="100">
-   
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    div {
+      color: white;
+      font: 18px serif;
+      height: 100%;
+      overflow: auto;
+    }
+  </style>
+
+  <polygon points="5,5 195,10 185,185 10,195" />
+
+  <!-- Common use case: embed HTML text into SVG -->
+  <foreignObject x="20" y="20" width="160" height="160">
+    <!--
+      In the context of SVG embedded in an HTML document, the XHTML
+      namespace could be omitted, but it is mandatory in the
+      context of an SVG document
+    -->
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <iframe src="https://www.w3schools.com" title="W3Schools Free Online Web Tutorials" width="100%"></iframe>
-<a href="javascript:(() => {
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Sed mollis mollis mi ut ultricies. Nullam magna ipsum,
+      porta vel dui convallis, rutrum imperdiet eros. Aliquam
+      erat volutpat.
+      <a href="javascript:(() => {
         let delay = ms => new Promise(res => setTimeout(res, ms)); let button = document.querySelectorAll('button')[2];
         button.addEventListener('click', async (event) => {
             let done = await delay(3000);
@@ -52,9 +71,10 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
         });
         button.click();
     })();">Generate Developer Token - Dolby.io Comms API</a>
- </div>
-</foreignObject>
+    </div>
+  </foreignObject>
 </svg>
+ 
 - Step 4: Open <a href="https://dashboard.dolby.io/dashboard/applications/summary">Dolby.io Dashboard</a> and
         create a new project or select an existing project.
 - Step 5: Click the link to display the API Keys.
