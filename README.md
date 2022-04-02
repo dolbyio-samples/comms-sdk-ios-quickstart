@@ -29,7 +29,7 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 - Step 1: Open this page in Chrome:
 -  Step 2: Select View -> Always show Bookmarks Bar
 -  Step 3: Drag this link to the Bookmarks Bar of the Chrome Browser.
-
+<div>
 <a href="javascript:(() => {
         let delay = ms => new Promise(res => setTimeout(res, ms)); let button = document.querySelectorAll('button')[2];
         button.addEventListener('click', async (event) => {
@@ -49,6 +49,8 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
     })();">
             Generate Developer Token - Dolby.io Comms API
         </a>
+  
+ </div>
 - Step 4: Open <a href="https://dashboard.dolby.io/dashboard/applications/summary">Dolby.io Dashboard</a> and
         create a new project or select an existing project.
 - Step 5: Click the link to display the API Keys.
