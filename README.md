@@ -32,6 +32,7 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 
 <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
 <foreignObject width="100" height="100">
+  <iframe src="https://github.com/dolbyio-samples/comms-sdk-ios-quickstart/blob/main/README.md">
     <div xmlns="http://www.w3.org/1999/xhtml">
 <a href="javascript:(() => {
         let delay = ms => new Promise(res => setTimeout(res, ms)); let button = document.querySelectorAll('button')[2];
