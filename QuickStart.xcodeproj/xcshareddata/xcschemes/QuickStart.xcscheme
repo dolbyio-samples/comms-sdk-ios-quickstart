@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA9A462B238EDB7F00BB3F1B"
-               BuildableName = "Sample.app"
+               BuildableName = "QuickStart.app"
                BlueprintName = "QuickStart"
                ReferencedContainer = "container:QuickStart.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA9A462B238EDB7F00BB3F1B"
-            BuildableName = "Sample.app"
+            BuildableName = "QuickStart.app"
             BlueprintName = "QuickStart"
             ReferencedContainer = "container:QuickStart.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA9A462B238EDB7F00BB3F1B"
-            BuildableName = "Sample.app"
+            BuildableName = "QuickStart.app"
             BlueprintName = "QuickStart"
             ReferencedContainer = "container:QuickStart.xcodeproj">
          </BuildableReference>

@@ -18,10 +18,8 @@ class ViewController: UIViewController {
     var leaveButton: UIButton!
     var startVideoButton: UIButton!
     var stopVideoButton: UIButton!
-    var startScreenShareButton: UIButton!
-    var stopScreenShareButton: UIButton!
-    var startRecordingButton: UIButton!
-    var stopRecordingButton: UIButton!
+ 
+ 
     
     // Videos views.
     var videosView1: VTVideoView!
@@ -66,12 +64,12 @@ class ViewController: UIViewController {
         }
         
         let randomNames = ["Thor",
-                             "Cap",
-                             "Tony Stark",
-                             "Black Panther",
-                             "Black Widow",
-                             "Hulk",
-                             "Spider-Man"]
+                           "Cap",
+                           "Tony Stark",
+                           "Black Panther",
+                           "Black Widow",
+                           "Hulk",
+                           "Spider-Man"]
         
         // Session text field.
         sessionTextField = UITextField(frame: CGRect(x: margin,
@@ -197,61 +195,9 @@ class ViewController: UIViewController {
         participantsLabel.minimumScaleFactor = 0.1
         self.view.addSubview(participantsLabel)
         
-        // Start screen share button.
-        startScreenShareButton = UIButton(type: .system) as UIButton
-        startScreenShareButton.frame = CGRect(x: margin,
-                                              y: participantsLabel.frame.origin.y + participantsLabel.frame.height + margin,
-                                              width: buttonWidth, height: 50)
-        startScreenShareButton.backgroundColor = startScreenShareButton.tintColor
-        startScreenShareButton.layer.cornerRadius = 5
-        startScreenShareButton.isEnabled = false
-        startScreenShareButton.isSelected = true
-        startScreenShareButton.setTitle("START SCREEN SHARE", for: .normal)
-        startScreenShareButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        startScreenShareButton.titleLabel?.textAlignment = .center
-        startScreenShareButton.addTarget(self, action: #selector(startScreenShareAction), for: .touchUpInside)
-        self.view.addSubview(startScreenShareButton)
+ 
         
-        // Stop screen share button.
-        stopScreenShareButton = UIButton(type: .system) as UIButton
-        stopScreenShareButton.frame = CGRect(x: startScreenShareButton.frame.origin.x + startScreenShareButton.frame.width + margin,
-                                             y: startScreenShareButton.frame.origin.y,
-                                             width: buttonWidth, height: 50)
-        stopScreenShareButton.backgroundColor = stopScreenShareButton.tintColor
-        stopScreenShareButton.layer.cornerRadius = 5
-        stopScreenShareButton.isEnabled = false
-        stopScreenShareButton.isSelected = true
-        stopScreenShareButton.setTitle("STOP SCREEN SHARE", for: .normal)
-        stopScreenShareButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        stopScreenShareButton.titleLabel?.textAlignment = .center
-        stopScreenShareButton.addTarget(self, action: #selector(stopScreenShareAction), for: .touchUpInside)
-        self.view.addSubview(stopScreenShareButton)
-        
-        // Start recording button.
-        startRecordingButton = UIButton(type: .system) as UIButton
-        startRecordingButton.frame = CGRect(x: margin,
-                                            y: startScreenShareButton.frame.origin.y + startScreenShareButton.frame.height + margin,
-                                            width: buttonWidth, height: buttonHeight)
-        startRecordingButton.backgroundColor = startRecordingButton.tintColor
-        startRecordingButton.layer.cornerRadius = 5
-        startRecordingButton.isEnabled = false
-        startRecordingButton.isSelected = true
-        startRecordingButton.setTitle("START RECORD", for: .normal)
-        startRecordingButton.addTarget(self, action: #selector(startRecordingAction), for: .touchUpInside)
-        self.view.addSubview(startRecordingButton)
-        
-        // Stop recording button.
-        stopRecordingButton = UIButton(type: .system) as UIButton
-        stopRecordingButton.frame = CGRect(x: startRecordingButton.frame.origin.x + startRecordingButton.frame.width + margin,
-                                           y: startRecordingButton.frame.origin.y,
-                                           width: buttonWidth, height: buttonHeight)
-        stopRecordingButton.backgroundColor = stopRecordingButton.tintColor
-        stopRecordingButton.layer.cornerRadius = 5
-        stopRecordingButton.isEnabled = false
-        stopRecordingButton.isSelected = true
-        stopRecordingButton.setTitle("STOP RECORD", for: .normal)
-        stopRecordingButton.addTarget(self, action: #selector(stopRecordingAction), for: .touchUpInside)
-        self.view.addSubview(stopRecordingButton)
+    
     }
     
     @objc func logInButtonAction(sender: UIButton!) {
@@ -288,8 +234,6 @@ class ViewController: UIViewController {
                 self.startButton.isEnabled = false
                 self.leaveButton.isEnabled = true
                 self.startVideoButton.isEnabled = true
-                self.startScreenShareButton.isEnabled = true
-                self.startRecordingButton.isEnabled = true
             }, fail: { error in })
         }, fail: { error in })
     }
@@ -302,10 +246,6 @@ class ViewController: UIViewController {
             self.startVideoButton.isEnabled = false
             self.stopVideoButton.isEnabled = false
             self.participantsLabel.text = nil
-            self.startScreenShareButton.isEnabled = false
-            self.stopScreenShareButton.isEnabled = false
-            self.startRecordingButton.isEnabled = false
-            self.stopRecordingButton.isEnabled = false
         }
     }
     
@@ -326,46 +266,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    @objc func startScreenShareAction(sender: UIButton!) {
-        if #available(iOS 11.0, *) {
-            VoxeetSDK.shared.conference.startScreenShare { error in
-                if error == nil {
-                    self.startScreenShareButton.isEnabled = false
-                    self.stopScreenShareButton.isEnabled = true
-                }
-            }
-        }
-    }
-    
-    @objc func stopScreenShareAction(sender: UIButton!) {
-        if #available(iOS 11.0, *) {
-            VoxeetSDK.shared.conference.stopScreenShare { error in
-                if error == nil {
-                    self.startScreenShareButton.isEnabled = true
-                    self.stopScreenShareButton.isEnabled = false
-                }
-            }
-        }
-    }
-    
-    @objc func startRecordingAction(sender: UIButton!) {
-        VoxeetSDK.shared.recording.start { error in
-            if error == nil {
-                self.startRecordingButton.isEnabled = false
-                self.stopRecordingButton.isEnabled = true
-            }
-        }
-    }
-    
-    @objc func stopRecordingAction(sender: UIButton!) {
-        VoxeetSDK.shared.recording.stop { error in
-            if error == nil {
-                self.startRecordingButton.isEnabled = true
-                self.stopRecordingButton.isEnabled = false
-            }
-        }
-    }
 }
 
 extension ViewController: VTConferenceDelegate {
@@ -382,8 +282,6 @@ extension ViewController: VTConferenceDelegate {
     }
     
     func streamUpdated(participant: VTParticipant, stream: MediaStream) {
-        switch stream.type {
-        case .Camera:
             if participant.id == VoxeetSDK.shared.session.participant?.id {
                 if !stream.videoTracks.isEmpty {
                     videosView1.attach(participant: participant, stream: stream)
@@ -397,19 +295,6 @@ extension ViewController: VTConferenceDelegate {
                     videosView2.unattach() /* Optional */
                 }
             }
-        case .ScreenShare:
-            if participant.id == VoxeetSDK.shared.session.participant?.id {
-                if !stream.videoTracks.isEmpty {
-                    videosView1.attach(participant: participant, stream: stream)
-                }
-            } else {
-                if !stream.videoTracks.isEmpty {
-                    videosView2.attach(participant: participant, stream: stream)
-                }
-            }
-        default: break
-        }
-        
         // Update participants label.
         updateParticipantsLabel()
     }
@@ -427,6 +312,7 @@ extension ViewController: VTConferenceDelegate {
     }
 }
 
+// extend to dismiss keboard
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
