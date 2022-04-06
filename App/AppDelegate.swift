@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      This function fetches the token by a post request with the app identifier, if matching on the service then a token is returned
     */
     func fetchSecureToken(completion: @escaping (_ token: String?) -> Void) {
-        let serverURL = "https://gsg-token-service-ios.netlify.app/api/token-generator/"  // enter your token server url
+        let serverURL = "<ENTER_YOUR_TOKEN_SERVER_URL>"  // enter your token server url
         let bundleID = Bundle.main.infoDictionary?["CFBundleIdentifier"] as! String
         
         let url = URL(string: serverURL)!
