@@ -18,7 +18,9 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 
 ![Xcode Build Setting](./wiki-quickstart-bundleid.png)
 
-6. Open Constants.swift and if missing, replace the API_TOKEN with your developer token.  You'l need to create an Auth2 token, this token can be created by going to the [Application Summary](https://dashboard.dolby.io) selecting an app, then copying your applications API Consumer Key and Consumer secret somewhere convenient.  Next go to our [REST API doumentation](https://docs.dolby.io/communications-apis/reference/get-client-access-token) and follow the instructions to create the client access token using the code example tool. 
+6. Open Constants.swift and if missing, replace the **API_TOKEN** with your developer token.  You'l need to create an Auth2 token, this token can be created by going to the [Dolby.io Application Summary page](https://dashboard.dolby.io) selecting an app, clicking on the API keys link, then copying your application's API **Consumer Key** and **Consumer secret** somewhere convenient.  Next go to our [REST API doumentation](https://docs.dolby.io/communications-apis/reference/get-client-access-token) and follow the instructions to create the client access token using the code example tool. 
+
+![Xcode Build Setting](./wiki-access-token.png)
 
 
   ``` Note, for the API tool, you should provide the Consumer Key for the username and Consumer Secret for the password in the tool.```        
@@ -26,8 +28,8 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 Alternatively, you can create a **Developer Token** with the handy [bookmarklet](https://developer-token-dolbyio.netlify.app) to create a 48 hour token within your Chrome browser.
   
   
-- Build and run your application.
-- You can test the app with another particpant by going to the developer dashboard at https://dashboard.dolby.io/dashboard/applications/summary and selecting your app and the communications apis link in the sidebar, select the test tab and join a conference.
+7. Build and run your application.
+8. You can test the app with another particpant by going to the developer dashboard at https://dashboard.dolby.io/dashboard/applications/summary and selecting your app and the **Communications APIs** link in the sidebar, select the test tab and join a conference.
 
 ### Notes:
 - The Dolby.io Communications API SDK is currently VoxeetSDK. 
