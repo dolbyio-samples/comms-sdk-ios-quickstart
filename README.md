@@ -1,11 +1,4 @@
 # Dolby.io Communications APIs iOS SDK Quick Start App
-
-This is the sample app from the iOS app used in the
-Getting Started article.  [Link Coming Soon]
-
-You can find additional reference documentation here:
-- [iOS Reference](https://docs.dolby.io/communications/docs/ios-client-sdk-voxeetsdk)
-
 ## Build and Run
 We've implemented Swift Package Manager from within XCode to add the Dolby.io SDK to this project.  We'll create and use a Developer Token while in developement, and recommend you use a token service for production deployment. 
 
@@ -49,3 +42,6 @@ The Swift Package Manager is a tool for automating the process of downloading, c
     ![SPM Settings](./wiki-spm-install.png)
 
 5. Select the `Add Package` option.
+
+You can find additional reference documentation here:
+- [iOS Reference](https://docs.dolby.io/communications/docs/ios-client-sdk-voxeetsdk)
