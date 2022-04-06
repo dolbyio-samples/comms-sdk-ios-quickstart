@@ -11,7 +11,6 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
   
  ![Select the SDK](./wiki-update-pkg.png)
 
-
 4. Select the project's target and Signings and Capibilities Tab.
 5. Select your team and set the project's bundle ID.
   - Typically, com.**teamid**.ios.quickstart where **teamid** equals your team id.
