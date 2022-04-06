@@ -1,4 +1,4 @@
-# Dolby.io Communications APIs iOS SDK Getting Started app
+# Dolby.io Communications APIs iOS SDK Quick Start App
 
 This is the sample app from the iOS app used in the
 Getting Started article.  [Link Coming Soon]
