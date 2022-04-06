@@ -3,6 +3,14 @@ import VoxeetSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    /*
+     See https://docs.dolby.io/communications-apis/reference/get-client-access-token 
+     to learn how to create a Developer Token. 
+     Note, for the API tool, you should provide your Dolby.io application's Consumer Key for the username 
+     and Consumer Secret for the password in the tool.
+
+    */
     
     func fetchDeveloperToken(completion: @escaping (_ token: String?) -> Void) {
         if (API_TOKEN == "<REPLACE-WITH-YOUR-DEVELOPER-TOKEN>"){
