@@ -1,5 +1,5 @@
-# Dolby.io Communications APIs iOS SDK Quick Start App
-This Quick Start Application is a simple audio and video conference example using the Dolby.io Communications API. You'll need to [Sign Up for a Dolby.io](https://www.dolby.io/signup) account to run the app. 
+# Dolby.io Communications APIs iOS SDK UIKIT Quick Start App
+This Quick Start Application is a simple audio and video conference example using the Dolby.io Communications API. This version will focus it's implementation using **Swift** and **UiKit**.  You'll need to [Sign Up for a Dolby.io](https://www.dolby.io/signup) account to run the app. 
 ## Build and Run
 We've implemented Swift Package Manager from within XCode to add the Dolby.io SDK to this project.  We'll create and use a Developer Token while in developement, and recommend you use a token service for production deployment. 
 
