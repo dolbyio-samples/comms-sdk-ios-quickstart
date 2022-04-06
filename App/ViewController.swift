@@ -178,17 +178,17 @@ class ViewController: UIViewController {
                                                 y: startVideoButton.frame.origin.y + startVideoButton.frame.height + margin,
                                                 width: buttonWidth, height: buttonWidth))
         videosView1.backgroundColor = .black
-        self.view.addSubview(videosView1)
+       
         
-        videosView2 = VTVideoView(frame: CGRect(x: startVideoButton.frame.origin.x + startVideoButton.frame.width + margin,
-                                                y: videosView1.frame.origin.y,
-                                                width: buttonWidth, height: buttonWidth))
+        videosView2 = VTVideoView(frame: CGRect(x:margin,
+                                                y: startVideoButton.frame.origin.y + startVideoButton.frame.height + margin,
+                                                width: self.view.frame.width - (margin * 2), height: self.view.frame.height / 2))
         videosView2.backgroundColor = .black
         self.view.addSubview(videosView2)
-        
+        self.view.addSubview(videosView1)
         // Participants label.
         participantsLabel = UILabel(frame: CGRect(x: margin,
-                                                  y: videosView1.frame.origin.y + videosView1.frame.height + margin,
+                                                  y: videosView2.frame.origin.y + videosView2.frame.height + margin,
                                                   width: textFieldWidth, height: textFieldHeight))
         participantsLabel.backgroundColor = .lightGray
         participantsLabel.adjustsFontSizeToFitWidth = true
