@@ -17,21 +17,24 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 
 ![Xcode Build Setting](./wiki/wiki-quickstart-bundleid.png)
 
-6. Open Constants.swift and if missing, replace the **API_TOKEN** with your developer token.  You'l need to create an Auth2 token, this token can be created by going to the [Dolby.io Application Summary page](https://dashboard.dolby.io) selecting an app, clicking on the API keys link, then copying your application's API **Consumer Key** and **Consumer secret** somewhere convenient.  Next go to our [REST API Documentation](https://docs.dolby.io/communications-apis/reference/get-client-access-token) and follow the instructions to create the client access token using the code example tool. 
+6. Open Constants.swift and if missing, replace the **API_TOKEN** with your developer token.  This is a **Client Access Token**, used to initialize the SDK from client applications. 
 
-![Xcode Build Setting](./wiki/wiki-access-token.png)
+    For the purposes of a quick demo, you can find a time-limited token with a 12 hr lifespan in our [developer dashboard](https://dashboard.dolby.io), create or select an application, tap demos link and copy your developer token. You'll use replace that value in your Constants.swift file.
 
+![Token](./wiki/wiki-client-access-token.png)
 
-  ``` Note, for the API tool, you should provide the Consumer Key for the username and Consumer Secret for the password in the tool.```        
+```
+Note: Our demo token is designed to get you quickly and securely started, since it has a short expiration time.  In a production app you would add addtional application mased authentication and generate and retrieve the client access token from a server. 
+```
+
+Our [REST API Documentation](https://docs.dolby.io/communications-apis/reference/get-client-access-token) details how to create the client access token.  
+
   
-Alternatively, you can create a **Developer Token** with the handy [bookmarklet](https://developer-token-dolbyio.netlify.app) to create a 48 hour token within your Chrome browser.
-  
-  
-7. Build and run your application.
-8. You can test the app with another particpant by going to the developer dashboard at https://dashboard.dolby.io/dashboard/applications/summary and selecting your app and the **Communications APIs** link in the sidebar, select the test tab and join a conference.
+## Build and run your application.
+ You can test the app with another particpant by going to the developer dashboard at https://dashboard.dolby.io/dashboard/applications/summary and selecting your app and the **Communications APIs** link in the sidebar, select the test tab and join a conference.
 
 ### Notes:
-- The Dolby.io Communications API SDK is currently VoxeetSDK. 
+- The Dolby.io Communications API SDK is currently named VoxeetSDK. 
 - If you have any issues with the SDK not being recognized; try updating the packages or re-installing the package SDK. (See below)
 
  
