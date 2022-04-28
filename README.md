@@ -6,20 +6,20 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 1. Download the app and open with xCode.
 2. Select The VoxeetSDK from the package dependancies in the sidebar menu.
 
-![Select the SDK](./wiki-select-sdk.png)
+![Select the SDK](./wiki/wiki-select-sdk.png)
 3. From the File menu, select Packages, Update to the latest version. This will resync the SDK to the latest version.
   
- ![Select the SDK](./wiki-update-pkg.png)
+ ![Select the SDK](./wiki/wiki-update-pkg.png)
 
 4. Select the project's target and Signings and Capibilities Tab.
 5. Select your team and set the project's bundle ID.
   - Typically, com.**teamid**.ios.quickstart where **teamid** equals your team id.
 
-![Xcode Build Setting](./wiki-quickstart-bundleid.png)
+![Xcode Build Setting](./wiki/wiki-quickstart-bundleid.png)
 
 6. Open Constants.swift and if missing, replace the **API_TOKEN** with your developer token.  You'l need to create an Auth2 token, this token can be created by going to the [Dolby.io Application Summary page](https://dashboard.dolby.io) selecting an app, clicking on the API keys link, then copying your application's API **Consumer Key** and **Consumer secret** somewhere convenient.  Next go to our [REST API Documentation](https://docs.dolby.io/communications-apis/reference/get-client-access-token) and follow the instructions to create the client access token using the code example tool. 
 
-![Xcode Build Setting](./wiki-access-token.png)
+![Xcode Build Setting](./wiki/wiki-access-token.png)
 
 
   ``` Note, for the API tool, you should provide the Consumer Key for the username and Consumer Secret for the password in the tool.```        
@@ -47,7 +47,7 @@ The Swift Package Manager is a tool for automating the process of downloading, c
 
 4. Select the proper SDK version from the `Dependency Rule` dropdown list.
    
-    ![SPM Settings](./wiki-spm-install.png)
+    ![SPM Settings](./wiki/wiki-spm-install.png)
 
 5. Select the `Add Package` option.
 
