@@ -3,21 +3,21 @@ This Quick Start Application is a simple audio and video conference example usin
 ## Build and Run
 We've implemented Swift Package Manager from within XCode to add the Dolby.io SDK to this project.  We'll create and use a Developer Token while in developement, and recommend you use a token service for production deployment. 
 
-1. Download the app and open with xCode.
-2. Select The VoxeetSDK from the package dependancies in the sidebar menu.
+1. Download this application repo to your local computer and open with xCode.
+2. Sync and update the SDK to the latest version. Select The VoxeetSDK from the package dependancies in the sidebar menu.
 
 ![Select the SDK](./wiki/wiki-select-sdk.png)
-3. From the File menu, select Packages, Update to the latest version. This will resync the SDK to the latest version.
+3. From the **File** menu, select **Packages**, **"Update to the latest version"**. This will resync the SDK to the latest version.
   
  ![Select the SDK](./wiki/wiki-update-pkg.png)
-
-4. Select the project's target and Signings and Capibilities Tab.
-5. Select your team and set the project's bundle ID.
-  - Typically, com.**teamid**.ios.quickstart where **teamid** equals your team id.
+4. Make sure your project's **Bundle identifier** and **Team Account** is set for your developement environment.
+   - Select the project's target and Signings and Capibilities Tab.
+   - Select your team and set the project's bundle ID.
+   
+      Typically, "com.**teamid**.ios.quickstart" where **teamid** equals your team id.
 
 ![Xcode Build Setting](./wiki/wiki-quickstart-bundleid.png)
-
-6. Open Constants.swift and if missing, replace the **API_TOKEN** with your developer token.  This is a **Client Access Token**, used to initialize the SDK from client applications. 
+5. Open Constants.swift and if missing, replace the **API_TOKEN** with your developer token.  This is a **Client Access Token**, used to initialize the SDK from client applications. 
 
     For the purposes of a quick demo, you can find a time-limited token with a 12 hr lifespan in our [developer dashboard](https://dashboard.dolby.io), create or select an application, tap demos link and copy your developer token. You'll use replace that value in your Constants.swift file.
 
@@ -27,11 +27,21 @@ We've implemented Swift Package Manager from within XCode to add the Dolby.io SD
 Note: Our demo token is designed to get you quickly and securely started, since it has a short expiration time.  In a production app you would add addtional application mased authentication and generate and retrieve the client access token from a server. 
 ```
 
-Our [REST API Documentation](https://docs.dolby.io/communications-apis/reference/get-client-access-token) details how to create the client access token.  
+Review our [REST API Documentation](https://docs.dolby.io/communications-apis/reference/get-client-access-token) details how to create the client access token.  
 
   
-## Build and run your application.
- You can test the app with another particpant by going to the developer dashboard at https://dashboard.dolby.io/dashboard/applications/summary and selecting your app and the **Communications APIs** link in the sidebar, select the test tab and join a conference.
+## Build and Run your Application.
+Build and run your application on your device. The demo must be run on your device and not the simulator in order to use to use the mic and camera features.
+
+
+
+ You can test the app with another particpant by going back to the demos section in the developer dashboard, selecting your app and the **Demos** link in the sidebar, select the **Conference App's Launch Demo** link to launch web-based conference app that's using the same token.
+
+ ![demo app](./wiki/wiki-test-conf-app.png)
+
+ Set the conference is to **dev-port** or matching conference you've selected on your device's Login screen and login and run the app on the device and in the browser, you should be able to see both participants.
+
+ ![demo app login](./wiki/wiki-demo-app.png)
 
 ### Notes:
 - The Dolby.io Communications API SDK is currently named VoxeetSDK. 
