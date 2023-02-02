@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         VoxeetSDK.shared.notification.push.type = .none
-        VoxeetSDK.shared.conference.defaultBuiltInSpeaker = true. // start conference with audio on
+        VoxeetSDK.shared.conference.defaultBuiltInSpeaker = true // start conference with audio on
         VoxeetSDK.shared.conference.defaultVideo = false  // start conference with video off
         
         return true

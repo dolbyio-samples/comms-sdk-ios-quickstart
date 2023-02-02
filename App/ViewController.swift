@@ -35,6 +35,12 @@ class ViewController: UIViewController {
     let textFieldWidth: CGFloat = 120 + 16 + 120
     let textFieldHeight: CGFloat = 40
     
+    // polling function for isSpeaking
+    var timer = Timer()
+    var localParticpant: VTParticipant!;
+    var remoteParticpant: VTParticipant!;
+    
+    
     /*
      *  MARK: Methods
      */
@@ -178,12 +184,18 @@ class ViewController: UIViewController {
                                                 y: startVideoButton.frame.origin.y + startVideoButton.frame.height + margin,
                                                 width: buttonWidth, height: buttonWidth))
         videosView1.backgroundColor = .black
-       
+        videosView1.layer.borderWidth = 3
+        videosView1.layer.borderColor = UIColor.clear.cgColor
+        
         
         videosView2 = VTVideoView(frame: CGRect(x:margin,
                                                 y: startVideoButton.frame.origin.y + startVideoButton.frame.height + margin,
                                                 width: self.view.frame.width - (margin * 2), height: self.view.frame.height / 2))
         videosView2.backgroundColor = .black
+   
+        videosView2.layer.borderWidth = 3
+        videosView2.layer.borderColor = UIColor.clear.cgColor
+        
         self.view.addSubview(videosView2)
         self.view.addSubview(videosView1)
         // Participants label.
@@ -234,6 +246,9 @@ class ViewController: UIViewController {
                 self.startButton.isEnabled = false
                 self.leaveButton.isEnabled = true
                 self.startVideoButton.isEnabled = true
+                self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
+                    self.refreshVoiceLevel();
+                   })
             }, fail: { error in })
         }, fail: { error in })
     }
@@ -250,7 +265,7 @@ class ViewController: UIViewController {
     }
     
     @objc func startVideoButtonAction(sender: UIButton!) {
-        VoxeetSDK.shared.conference.startVideo { error in
+        VoxeetSDK.shared.video.local.start { error in
             if error == nil {
                 self.startVideoButton.isEnabled = false
                 self.stopVideoButton.isEnabled = true
@@ -258,14 +273,49 @@ class ViewController: UIViewController {
         }
     }
     
+    
     @objc func stopVideoButtonAction(sender: UIButton!) {
-        VoxeetSDK.shared.conference.stopVideo { error in
+        VoxeetSDK.shared.video.local.stop { error in
             if error == nil {
                 self.startVideoButton.isEnabled = true
                 self.stopVideoButton.isEnabled = false
             }
         }
     }
+    
+ 
+    
+    @objc private func refreshVoiceLevel() {
+
+              
+        if ((localParticpant == nil)) {return };
+        
+        let isSpeaking  = VoxeetSDK.shared.conference.isSpeaking(participant: localParticpant);
+        
+        if(isSpeaking == true){
+            videosView1.layer.borderWidth = 3
+            videosView1.layer.borderColor = UIColor.green.cgColor
+        }else {
+            videosView1.layer.borderWidth = 3
+            videosView1.layer.borderColor = UIColor.clear.cgColor
+        }
+        
+        if ((remoteParticpant == nil)) {return };
+        
+        let isRemoteSpeaking  = VoxeetSDK.shared.conference.isSpeaking(participant: remoteParticpant);
+        if(isRemoteSpeaking == true){
+            videosView2.layer.borderWidth = 3
+            videosView2.layer.borderColor = UIColor.green.cgColor
+        }else {
+            videosView2.layer.borderWidth = 3
+            videosView2.layer.borderColor = UIColor.clear.cgColor
+            
+        }
+    
+
+       
+        
+        }
 }
 
 extension ViewController: VTConferenceDelegate {
@@ -285,12 +335,15 @@ extension ViewController: VTConferenceDelegate {
             if participant.id == VoxeetSDK.shared.session.participant?.id {
                 if !stream.videoTracks.isEmpty {
                     videosView1.attach(participant: participant, stream: stream)
+                    localParticpant = participant;
                 } else {
                     videosView1.unattach() /* Optional */
+                    
                 }
             } else {
                 if !stream.videoTracks.isEmpty {
                     videosView2.attach(participant: participant, stream: stream)
+                    remoteParticpant = participant;
                 } else {
                     videosView2.unattach() /* Optional */
                 }
