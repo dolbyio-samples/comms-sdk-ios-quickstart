@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     let textFieldWidth: CGFloat = 120 + 16 + 120
     let textFieldHeight: CGFloat = 40
     
-    // polling function for isSpeaking
+    // polling feature for isSpeaking
     var timer = Timer()
     var localParticpant: VTParticipant!;
     var remoteParticpant: VTParticipant!;
@@ -247,7 +247,7 @@ class ViewController: UIViewController {
                 self.leaveButton.isEnabled = true
                 self.startVideoButton.isEnabled = true
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] _ in
-                    self.refreshVoiceLevel();
+                    self.whoIsSpeaking();
                    })
             }, fail: { error in })
         }, fail: { error in })
@@ -285,8 +285,7 @@ class ViewController: UIViewController {
     
  
     
-    @objc private func refreshVoiceLevel() {
-
+    @objc private func whoIsSpeaking() {
               
         if ((localParticpant == nil)) {return };
         
@@ -309,13 +308,8 @@ class ViewController: UIViewController {
         }else {
             videosView2.layer.borderWidth = 3
             videosView2.layer.borderColor = UIColor.clear.cgColor
-            
         }
-    
-
-       
-        
-        }
+    }
 }
 
 extension ViewController: VTConferenceDelegate {
