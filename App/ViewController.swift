@@ -314,6 +314,8 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: VTConferenceDelegate {
+    func statusUpdated(status: VTConferenceStatus) {}
+    
     func permissionsUpdated(permissions: [Int]) {}
     
     func participantAdded(participant: VTParticipant) {}
