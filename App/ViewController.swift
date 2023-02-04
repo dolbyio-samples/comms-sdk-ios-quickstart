@@ -324,6 +324,24 @@ extension ViewController: VTConferenceDelegate {
     
     func participantUpdated(participant: VTParticipant) {}
     
+        
+    // currently doesn't work
+    func activeParticipants(notification: VTActiveParticipantsNotification){
+        let participants = notification.participants;
+        participants.forEach { participant in
+            
+            if participant.id == VoxeetSDK.shared.session.participant?.id {
+                localParticpant = participant;
+                print(participant.info.name as Any);
+            }else {
+                // remote
+                remoteParticpant = participant;
+                print(participant.info.name as Any);
+            }
+            
+        }
+    }
+
     func streamAdded(participant: VTParticipant, stream: MediaStream) {
         streamUpdated(participant: participant, stream: stream)
     }
