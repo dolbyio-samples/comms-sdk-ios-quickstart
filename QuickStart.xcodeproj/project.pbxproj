@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05A1DE8127F7B42C006AD659 /* VoxeetSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 05A1DE8027F7B42C006AD659 /* VoxeetSDK */; };
 		05A1DE8327F7B5AF006AD659 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1DE8227F7B5AF006AD659 /* Constants.swift */; };
+		05F0438B298ED709000BF203 /* VoxeetSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 05F0438A298ED709000BF203 /* VoxeetSDK */; };
 		FA9A4630238EDB7F00BB3F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A462F238EDB7F00BB3F1B /* AppDelegate.swift */; };
 		FA9A4632238EDB7F00BB3F1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A4631238EDB7F00BB3F1B /* SceneDelegate.swift */; };
 		FA9A4634238EDB7F00BB3F1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A4633238EDB7F00BB3F1B /* ViewController.swift */; };
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A1DE8127F7B42C006AD659 /* VoxeetSDK in Frameworks */,
+				05F0438B298ED709000BF203 /* VoxeetSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 			);
 			name = QuickStart;
 			packageProductDependencies = (
-				05A1DE8027F7B42C006AD659 /* VoxeetSDK */,
+				05F0438A298ED709000BF203 /* VoxeetSDK */,
 			);
 			productName = Sample;
 			productReference = FA9A462C238EDB7F00BB3F1B /* QuickStart.app */;
@@ -134,7 +134,7 @@
 			);
 			mainGroup = FA9A4623238EDB7F00BB3F1B;
 			packageReferences = (
-				05A1DE7F27F7B42C006AD659 /* XCRemoteSwiftPackageReference "voxeet-sdk-ios" */,
+				05F04389298ED709000BF203 /* XCRemoteSwiftPackageReference "voxeet-sdk-ios" */,
 			);
 			productRefGroup = FA9A462D238EDB7F00BB3F1B /* Products */;
 			projectDirPath = "";
@@ -372,7 +372,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		05A1DE7F27F7B42C006AD659 /* XCRemoteSwiftPackageReference "voxeet-sdk-ios" */ = {
+		05F04389298ED709000BF203 /* XCRemoteSwiftPackageReference "voxeet-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/voxeet/voxeet-sdk-ios";
 			requirement = {
@@ -383,9 +383,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		05A1DE8027F7B42C006AD659 /* VoxeetSDK */ = {
+		05F0438A298ED709000BF203 /* VoxeetSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 05A1DE7F27F7B42C006AD659 /* XCRemoteSwiftPackageReference "voxeet-sdk-ios" */;
+			package = 05F04389298ED709000BF203 /* XCRemoteSwiftPackageReference "voxeet-sdk-ios" */;
 			productName = VoxeetSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

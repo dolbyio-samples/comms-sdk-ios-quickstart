@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         
         // Conference delegate.
         VoxeetSDK.shared.conference.delegate = self
+        print(VoxeetSDK.version())  //[VoxeetSDK] 3.8.0 (1)
     }
     
     func initSessionUI() {
@@ -318,8 +319,6 @@ extension ViewController: VTConferenceDelegate {
     func participantAdded(participant: VTParticipant) {}
     
     func participantUpdated(participant: VTParticipant) {}
-    
-    func statusUpdated(status: VTConferenceStatus) {}
     
     func streamAdded(participant: VTParticipant, stream: MediaStream) {
         streamUpdated(participant: participant, stream: stream)
