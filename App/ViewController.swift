@@ -314,6 +314,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: VTConferenceDelegate {
+    
+    func statusUpdated(status: VoxeetSDK.VTConferenceStatus) {
+    }
+    
     func permissionsUpdated(permissions: [Int]) {}
     
     func participantAdded(participant: VTParticipant) {}
